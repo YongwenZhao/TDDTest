@@ -1,0 +1,23 @@
+<h1> <%= @show.name %>: Details </h1>
+<img src=<%= @show.picture%> >
+<ul>
+  <li> Duration of each episode: <%= @show.episode_duration%> </li>
+  <li> Genre: <%= @show.genre %> </li>
+  <li> Year of start: <%= @show.started_year %></li>
+</ul>
+
+<% @comments.each do |comment| %>
+  <div >
+  	<table>
+  		<tr>
+  			<td><%= comment.content %></td>
+  			<td><%=  link_to "Delete" , show_comment_path( @show, comment) , :method => :delete %></td>
+  		</tr>
+  		<tr>
+  			<td><%= comment.time%></td>
+  		</tr>
+  	</table>
+  </div>
+<% end %>
+
+<%= render partial: "comments/form", locals:{show:@show, comment: @show.comments.build } %>

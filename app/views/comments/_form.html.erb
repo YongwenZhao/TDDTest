@@ -1,0 +1,7 @@
+<div id="comment_form_wrapper">
+	<h3>Add Comment</h3>
+	<%= form_for [show, comment] do |f| %>
+		<%= f.text_field  :content %>
+		<%= f.submit "Add Comment" %>
+	<% end %>
+</div>	

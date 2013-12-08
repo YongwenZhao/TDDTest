@@ -1,0 +1,40 @@
+<h1>Shows List</h1>
+
+<table>
+
+  <thead>
+  <tr>
+    <th>Show Name</th>
+    <th>Show Picture URL</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @shows.each do |show| %>
+    <tr>
+      <td>
+      <a href= <%= show_path(show.id) %>>
+        <%= show.name %>
+      </a>
+      </td>
+      <td><%= show.picture %></td>
+      <td>
+        <%= button_to "Update",
+                        {:controller => :shows,
+                         :action => 'edit',
+                         id: show.id},
+                        method: :get %>
+        <%= button_to "Delete",
+                      {:controller => :shows,
+                       :action => 'destroy',
+                       id: show.id},
+                      method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<a href="/shows/new">New Show</a>

@@ -1,0 +1,13 @@
+<h1>Edit Show</h1>
+<div id="form-wrapper">
+  <%= simple_form_for @show do |f| %>
+    <fieldset>
+      <%=f.input :name %>
+      <%=f.input :picture %>
+      <%=f.input :episode_duration, label: 'Duration of each episode' %>
+      <%=f.input :genre %>
+      <%=f.input :started_year, label: 'Year of start'%>
+      <%=f.button :submit, "Update" %>
+    </fieldset>
+  <% end %>
+</div>
